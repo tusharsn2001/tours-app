@@ -20,7 +20,7 @@ mongoose.connect(db, {
 
 // Read json file
 
-const tours = JSON.parse(fs.readFileSync('./tours-simple.json', 'utf-8'));
+const tours = JSON.parse(fs.readFileSync('tours-simple.json', 'utf-8'));
 
 const importData = async () => {
     try {
@@ -37,9 +37,16 @@ const deleteData = async () => {
     try {
         await Tour.deleteMany();
         console.log('data succesfully deleted')
+        process.exi
     } catch (error) {
         console.log(error)
     }
+}
+
+if (process.argv[2] === '--import') {
+    importData()
+} else if (process.argv[2] == '--delete') {
+    deleteData()
 }
 
 console.log(process.argv)

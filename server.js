@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const app = require('./app')
 const port = 3001;
-
+// require('dotenv').config()
 dotenv.config({ path: './config.env' })
 
 // database
